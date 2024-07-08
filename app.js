@@ -27,7 +27,7 @@ formElement.addEventListener('submit', function (event){
     console.log(km)
 
     // recuperiamo input eta
-    const eta = parseFloat (inputEtaElement.value) //number
+    const eta = parseInt (inputEtaElement.value) //number
     console.log(eta)
 
     // calcoliamo il prezzo del biglietto
@@ -51,5 +51,5 @@ formElement.addEventListener('submit', function (event){
     // creiamo i tre output per il riepilogo
     outputKmElement.innerHTML = km + ' chilometri'
     outputEtaElement.innerHTML = eta + ' anni'
-    outputPrezzoElement.innerHTML = prezzoTotale + '€'
+    outputPrezzoElement.innerHTML = prezzoTotale.toFixed(2) + '€'
 })
