@@ -1,15 +1,19 @@
-// denominazione variabili
-let buttonElement
+// 1) denominazione variabili
 let formElement
 let prezzoBiglietto
 let sconto
 let prezzoTotale
+let outputKmElement
+let outputEtaElement
+let outputPrezzoElement
 
-// Richiamo variabili dal DOM e assegnazione
-buttonElement = document.getElementById('calcola')
+// 2) Richiamo variabili dal DOM e assegnazione
 formElement = document.getElementById('form-km')
+outputKmElement = document.getElementById ('output-km')
+outputEtaElement = document.getElementById ('output-eta')
+outputPrezzoElement = document.getElementById ('output-prezzo')
 
-// recupero input dal DOM
+// 3) recupero input dal DOM
 const inputKmElement = document.getElementById('km')
 const inputEtaElement = document.getElementById('eta')
 
@@ -35,10 +39,17 @@ formElement.addEventListener('submit', function (event){
 
     } else if (eta > 65) {
         sconto = prezzoBiglietto * 0.40
+
     } else {
         sconto = 0
     }
 
     // calcoliamo il prezzo del biglietto
     prezzoTotale = prezzoBiglietto - sconto
+    console.log(prezzoTotale)
+
+    // creiamo i tre output per il riepilogo
+    outputKmElement.innerHTML = km + ' chilometri'
+    outputEtaElement.innerHTML = eta + ' anni'
+    outputPrezzoElement.innerHTML = prezzoTotale + '€'
 })
